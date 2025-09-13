@@ -2,9 +2,10 @@ extends Node2D
 class_name particle
 
 
+
 @export var vel : Vector2 = Vector2(0,0)
-@export var charge : float = 1.0 * pow(10, -4)
-@export var mass : float = 1.0 * pow(10, -9)
+@export var charge : float = 1.0 * (1/pow(10, 4))
+@export var mass : float = 1.0 * pow(10,5)
 
 @export var moveActive : bool = false
 
