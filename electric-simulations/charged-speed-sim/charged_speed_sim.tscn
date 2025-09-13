@@ -1,0 +1,116 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhsgm1ph38tqj"]
+
+[ext_resource type="Script" uid="uid://cbi4o17rw5tl2" path="res://electric-simulations/charged-speed-sim/charged_speed_sim.gd" id="1_jc21v"]
+[ext_resource type="PackedScene" uid="uid://clnbivii6i2dj" path="res://electric-simulations/assets/particle/particle.tscn" id="1_puf32"]
+
+[node name="charged-speed-sim" type="Node2D" node_paths=PackedStringArray("testCharge", "target_point", "init_pos")]
+position = Vector2(-17, -127)
+script = ExtResource("1_jc21v")
+testCharge = NodePath("physics/particle2")
+target_point = NodePath("physics/target-node")
+init_pos = NodePath("physics/initPos")
+
+[node name="ui" type="Node2D" parent="."]
+
+[node name="distance" type="Label" parent="ui"]
+offset_left = 205.0
+offset_top = 371.0
+offset_right = 547.0
+offset_bottom = 394.0
+text = "|-------------------------------- Di --------------------------|"
+
+[node name="distance2" type="Label" parent="ui"]
+offset_left = 205.0
+offset_top = 407.0
+offset_right = 924.0
+offset_bottom = 430.0
+text = "|--------------------------------------------------------------------- Df --------------------------------------------------------------|"
+
+[node name="Question" type="Label" parent="ui"]
+offset_left = 97.0
+offset_top = 175.0
+offset_right = 1014.0
+offset_bottom = 224.0
+text = "Given Q1 = 1.0 *10^-4 C, and the distance Di,  find the charge of Q2, so that Q2 reaches the target point Df away in 1.0 seconds. "
+autowrap_mode = 2
+
+[node name="start_button" type="Button" parent="ui"]
+offset_left = 578.0
+offset_top = 677.0
+offset_right = 838.0
+offset_bottom = 728.0
+text = "start"
+
+[node name="reset_button" type="Button" parent="ui"]
+offset_left = 875.0
+offset_top = 671.0
+offset_right = 1115.0
+offset_bottom = 729.0
+text = "reset"
+
+[node name="values" type="Node2D" parent="ui"]
+
+[node name="force1-2" type="Label" parent="ui/values"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="velocity2" type="Label" parent="ui/values"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="sim_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="physics" type="Node2D" parent="."]
+
+[node name="particle" parent="physics" node_paths=PackedStringArray("otherCharge") instance=ExtResource("1_puf32")]
+position = Vector2(184, 313)
+otherCharge = NodePath("../particle2")
+
+[node name="Q1" type="Label" parent="physics/particle"]
+offset_left = -6.0
+offset_top = -34.0
+offset_right = 34.0
+offset_bottom = -11.0
+text = "Q1"
+
+[node name="particle2" parent="physics" node_paths=PackedStringArray("otherCharge") instance=ExtResource("1_puf32")]
+position = Vector2(524, 313)
+otherCharge = NodePath("../particle")
+
+[node name="Q2" type="Label" parent="physics/particle2"]
+offset_left = -4.0
+offset_top = -43.0
+offset_right = 36.0
+offset_bottom = -20.0
+text = "Q2"
+
+[node name="initPos" type="Node2D" parent="physics"]
+position = Vector2(524, 313)
+
+[node name="target-node" type="Node2D" parent="physics"]
+position = Vector2(894, 321)
+
+[node name="targetRect" type="ColorRect" parent="physics/target-node"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 0, 0, 1)
+
+[node name="target-label" type="Label" parent="physics/target-node"]
+offset_left = -13.0
+offset_top = -48.0
+offset_right = 37.0
+offset_bottom = -25.0
+text = "Target"
+
+[node name="finish_label" type="Label" parent="."]
+visible = false
+offset_left = 293.0
+offset_top = 151.0
+offset_right = 790.0
+offset_bottom = 198.0
+text = "Hm, a little off."
+
+[connection signal="button_down" from="ui/start_button" to="." method="_on_start_button_button_down"]
+[connection signal="button_down" from="ui/reset_button" to="." method="_on_reset_button_button_down"]
+[connection signal="timeout" from="sim_timer" to="." method="_on_sim_timer_timeout"]
