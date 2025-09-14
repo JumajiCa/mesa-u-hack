@@ -1,36 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://ch2yek8ndkrpa"]
+[gd_scene load_steps=6 format=3 uid="uid://ch2yek8ndkrpa"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pbsw1"]
-bg_color = Color(0.254902, 0.462745, 1, 1)
-corner_radius_top_left = 15
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
-expand_margin_top = 5.0
-expand_margin_bottom = 5.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r1r1s"]
-bg_color = Color(0, 0.909804, 0.0313726, 1)
-corner_radius_top_left = 15
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
-expand_margin_top = 5.0
-expand_margin_bottom = 5.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ufgq8"]
-bg_color = Color(0.360784, 0.827451, 1, 1)
-corner_radius_top_left = 15
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
-expand_margin_top = 5.0
-expand_margin_bottom = 5.0
-
-[sub_resource type="Theme" id="Theme_gwxyu"]
-HSlider/styles/grabber_area = SubResource("StyleBoxFlat_pbsw1")
-HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_r1r1s")
-HSlider/styles/slider = SubResource("StyleBoxFlat_ufgq8")
+[ext_resource type="Script" uid="uid://cntuti0sykiv7" path="res://value_slider_input.gd" id="1_r1r1s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gwxyu"]
 bg_color = Color(0.0862745, 0.729412, 0.980392, 1)
@@ -75,7 +45,7 @@ offset_right = 68.0
 offset_bottom = -64.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_gwxyu")
+script = ExtResource("1_r1r1s")
 
 [node name="HSlider" type="HSlider" parent="."]
 layout_mode = 1
@@ -84,10 +54,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -8.0
-offset_right = 4.0
-offset_bottom = 8.0
+offset_left = -101.0
+offset_top = -9.0
+offset_right = 99.0
+offset_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_jh54c")
+
+[connection signal="drag_ended" from="HSlider" to="." method="_on_h_slider_drag_ended"]
