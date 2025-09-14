@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://c2qmnm2g7iqlp" path="res://art/tilesetOpenGameBackground.png" id="1_jjvhh"]
 [ext_resource type="Texture2D" uid="uid://b5ic3kq7c5q1c" path="res://art/predio1.png" id="2_kry3j"]
-[ext_resource type="PackedScene" uid="uid://bivreq18bk2di" path="res://Scenes/main_character.tscn" id="3_21xkr"]
-[ext_resource type="PackedScene" uid="uid://bei2max0mxoto" path="res://Scenes/Question_1.tscn" id="4_6bp64"]
+[ext_resource type="PackedScene" uid="uid://bivreq18bk2di" path="res://gravity-sim/main_character.tscn" id="3_21xkr"]
+[ext_resource type="PackedScene" uid="uid://bei2max0mxoto" path="res://gravity-sim/Question_1.tscn" id="4_6bp64"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h2yge"]
 texture = ExtResource("2_kry3j")

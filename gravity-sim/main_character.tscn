@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bivreq18bk2di"]
 
 [ext_resource type="Texture2D" uid="uid://cohsryh3wnuy4" path="res://art/egg.png" id="1_0eyao"]
-[ext_resource type="Script" uid="uid://s6sb62tokybf" path="res://Scenes/main_character.gd" id="1_11o2n"]
+[ext_resource type="Script" uid="uid://s6sb62tokybf" path="res://gravity-sim/main_character.gd" id="1_11o2n"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h2yge"]
 radius = 9.32087

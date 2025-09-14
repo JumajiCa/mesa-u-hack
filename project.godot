@@ -13,7 +13,6 @@ config_version=5
 config/name="Mesa Hack"
 run/main_scene="uid://ch2yek8ndkrpa"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
 
 [display]
 
