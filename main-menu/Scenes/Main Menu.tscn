@@ -1,76 +1,58 @@
-[gd_scene format=3 uid="uid://q182tx0exdu"]
+[gd_scene load_steps=4 format=3 uid="uid://q182tx0exdu"]
+
+[ext_resource type="PackedScene" uid="uid://dx7a6cjcqkual" path="res://main-menu/Level_Button.tscn" id="1_ahocb"]
+[ext_resource type="Script" uid="uid://dt6ckd2c4u4x4" path="res://main-menu/quit_button.gd" id="2_fn6q6"]
+
+[sub_resource type="Theme" id="Theme_h5syq"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 8
 
-[node name="Background" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = -336.0
-offset_top = -195.0
-offset_right = 1584.0
-offset_bottom = 885.0
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -148.5
+offset_right = 148.5
+offset_bottom = 23.0
+grow_horizontal = 2
+theme = SubResource("Theme_h5syq")
+theme_override_font_sizes/font_size = 60
+text = "PHYSICS EDUCATION SIMULATOR 9000"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 13
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -209.0
-offset_top = 347.0
-offset_right = 190.0
-offset_bottom = -182.0
+anchor_bottom = 0.5
+offset_left = -199.5
+offset_top = -50.5
+offset_right = 199.5
+offset_bottom = 50.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Start" parent="VBoxContainer"]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
+[node name="Start" parent="VBoxContainer" instance=ExtResource("1_ahocb")]
 layout_mode = 2
-file_path_pog = null
-script = null
+theme = null
+text = "Start"
+file_path = "uid://igynifjoqtc4"
 
-[node name="Options" parent="VBoxContainer"]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
+[node name="Languages" parent="VBoxContainer" instance=ExtResource("1_ahocb")]
 layout_mode = 2
-file_path_pog = "uid://3047n8l5tvxe"
-script = null
+text = "Languages"
 
-[node name="Back" parent="VBoxContainer"]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
+[node name="Quit" parent="VBoxContainer" instance=ExtResource("1_ahocb")]
 layout_mode = 2
-file_path_pog = null
-script = null
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(568, 262)
+text = "Quit"
+script = ExtResource("2_fn6q6")
+file_path = null

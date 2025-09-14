@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dx7a6cjcqkual"]
+[gd_scene load_steps=3 format=3 uid="uid://dx7a6cjcqkual"]
+
+[ext_resource type="Script" uid="uid://dvgimjg38wfcl" path="res://main-menu/level_button.gd" id="1_i130b"]
 
 [sub_resource type="Theme" id="Theme_7kavw"]
 
@@ -7,6 +9,9 @@ offset_right = 173.0
 offset_bottom = 173.0
 theme = SubResource("Theme_7kavw")
 text = "Level Pog"
+script = ExtResource("1_i130b")
+file_path = "uid://bd1s0f1cm4yfj"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
