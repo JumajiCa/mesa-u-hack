@@ -1,0 +1,124 @@
+[gd_scene load_steps=5 format=3 uid="uid://bei2max0mxoto"]
+
+[ext_resource type="Texture2D" uid="uid://cohsryh3wnuy4" path="res://art/egg.png" id="1_308ht"]
+[ext_resource type="Script" uid="uid://cf5861vk147dq" path="res://Scenes/question_1.gd" id="1_v21pu"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kry3j"]
+radius = 24.0
+height = 48.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v21pu"]
+size = Vector2(918, 275)
+
+[node name="Question_1" type="Area2D"]
+script = ExtResource("1_v21pu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(283, 96)
+texture = ExtResource("1_308ht")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(271, 84)
+shape = SubResource("CapsuleShape2D_kry3j")
+
+[node name="Question2" type="Area2D" parent="."]
+position = Vector2(689, 433)
+
+[node name="Sprite2D" type="Sprite2D" parent="Question2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Question2"]
+position = Vector2(316, 124)
+shape = SubResource("RectangleShape2D_v21pu")
+
+[node name="Display Q1" type="CanvasLayer" parent="."]
+
+[node name="accel" type="Panel" parent="Display Q1"]
+visible = false
+offset_left = 378.0
+offset_top = 61.0
+offset_right = 843.0
+offset_bottom = 123.0
+
+[node name="Label" type="Label" parent="Display Q1/accel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = -1.0
+offset_right = 14.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "What is the magnitude of its velocity at the highest point?
+Answer in meters per second"
+
+[node name="accel input" type="Panel" parent="Display Q1"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LineEdit" type="LineEdit" parent="Display Q1/accel input"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -140.0
+offset_top = -188.0
+offset_right = 21.0
+offset_bottom = -157.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Display Q2" type="CanvasLayer" parent="."]
+
+[node name="accel2" type="Panel" parent="Display Q2"]
+visible = false
+offset_left = 578.0
+offset_top = 430.0
+offset_right = 1043.0
+offset_bottom = 492.0
+
+[node name="Label" type="Label" parent="Display Q2/accel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = 4.0
+offset_right = 14.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "What is the magnitude of its velocity at the highest point?
+Answer in meters per second"
+
+[node name="accel input2" type="Panel" parent="Display Q2"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LineEdit" type="LineEdit" parent="Display Q2/accel input2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 45.0
+offset_top = 181.0
+offset_right = 206.0
+offset_bottom = 212.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
