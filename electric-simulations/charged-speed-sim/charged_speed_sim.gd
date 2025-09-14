@@ -64,7 +64,7 @@ func stop() -> void:
 func update_labels() -> void:
 	speed_label.text = "Q2 Velocity: " + str(testCharge.vel.x)
 	time_label.text = "Time Elapsed: " + str(timer)
-	pos_label.text = "Distance from Start: " + str(testCharge.global_position.x - init_pos.global_position.x)
+	pos_label.text = "Distance from Start: " + str((testCharge.global_position.x - init_pos.global_position.x)/100)
 
 func checkPosition() -> void:
 	if(testCharge.global_position.distance_to(target_point.global_position)) < dThreshhold:

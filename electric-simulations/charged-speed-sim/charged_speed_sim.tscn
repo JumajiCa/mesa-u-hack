@@ -7,7 +7,6 @@
 size = Vector2(18, 20)
 
 [node name="charged-speed-sim" type="Node2D" node_paths=PackedStringArray("testCharge", "target_point", "init_pos", "text_box", "speed_label", "time_label", "pos_label")]
-position = Vector2(-17, -127)
 script = ExtResource("1_jc21v")
 testCharge = NodePath("physics/particle2")
 target_point = NodePath("physics/target-node")
@@ -18,20 +17,21 @@ time_label = NodePath("variables/Q2/time")
 pos_label = NodePath("variables/Q2/position_label")
 
 [node name="ui" type="Node2D" parent="."]
+position = Vector2(4, -130)
 
 [node name="distance2" type="Label" parent="ui"]
 offset_left = 388.0
 offset_top = 266.0
 offset_right = 1007.0
 offset_bottom = 289.0
-text = "|--------------------------------------------------------------------- Df ---------------------------------------|"
+text = "|------------------------------------- Df ----------------------------------|"
 
 [node name="Question" type="Label" parent="ui"]
 offset_left = 97.0
 offset_top = 175.0
 offset_right = 1014.0
 offset_bottom = 224.0
-text = "Given Q1 = 1.0 *10^-4 C, and the distance Di,  find the charge of Q2, so that Q2 reaches the target point Df away in 1.0 seconds. "
+text = "Given E = 1.0 * 10^4, and the distance Df = 4.1m,  find the charge of Q2 such that Q2 reaches the target point  in 1.0 seconds. The charge Q2 is initially at rest, and the E field is constant, and the charge Q2 is 1kg."
 autowrap_mode = 2
 
 [node name="start_button" type="Button" parent="ui"]
@@ -71,7 +71,7 @@ offset_left = 965.0
 offset_top = 585.0
 offset_right = 1119.0
 offset_bottom = 608.0
-text = "Q1 Charge (*10^9 C)"
+text = "Q1 Charge (*10^-4 C)"
 
 [node name="E Field" type="Label" parent="ui"]
 offset_left = 380.0
@@ -80,10 +80,20 @@ offset_right = 1021.0
 offset_bottom = 552.0
 text = "-----------------------------------------E Field (constant) ------------------------------------------------------->"
 
+[node name="equations" type="Label" parent="ui"]
+offset_left = 458.0
+offset_top = 613.0
+offset_right = 558.0
+offset_bottom = 737.0
+text = "F = E*q
+A = F/m
+d = 1/2A*t^2"
+
 [node name="sim_timer" type="Timer" parent="."]
 one_shot = true
 
 [node name="physics" type="Node2D" parent="."]
+position = Vector2(4, -130)
 
 [node name="particle2" parent="physics" instance=ExtResource("1_puf32")]
 position = Vector2(395, 357)
@@ -132,6 +142,7 @@ position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_jc21v")
 
 [node name="variables" type="Node2D" parent="."]
+position = Vector2(4, -130)
 
 [node name="other variables" type="Label" parent="variables"]
 offset_left = 54.0
@@ -175,10 +186,11 @@ position = Vector2(395, 357)
 
 [node name="finish_label" type="Label" parent="."]
 visible = false
-offset_left = 554.0
-offset_top = 313.0
-offset_right = 1051.0
-offset_bottom = 360.0
+offset_left = 91.0
+offset_top = 269.0
+offset_right = 1111.0
+offset_bottom = 474.0
+theme_override_font_sizes/font_size = 150
 text = "hm, not quite."
 
 [connection signal="button_down" from="ui/start_button" to="." method="_on_start_button_button_down"]
