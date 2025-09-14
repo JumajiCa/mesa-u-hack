@@ -1,0 +1,54 @@
+
+problem statements
+    have the particle reach a speed at a certain distance based on setting either the charge or initial velocity
+
+given that the stationary charge is a certain charge, then determine the charge for the second particle to reach a certain speed in a certain amount of time.
+    
+
+
+Todo =================
+
+    confirm when the particle is in the expected location
+
+
+
+
+
+Structure ===================
+
+    overall script to trigger the beginning of movement, and check for when the particle is in the proper position.
+
+Help ========================
+
+    have something to give hints
+
+Auto-Generate New Problems ==========
+
+
+"Sandbox" ===========================
+
+    just place different particles around and see what happens 
+
+Show "other configurations" =========
+
+    maybe show the problem set up in different configurations to see how the problem would be otherwise solved.
+
+Multiple Particles ===================
+
+    set up so that more particles can be added and placed
+
+"Stepper" ============================
+
+    increment each frame to see how the velocity/acceleration changes at each time in the simulation. 
+
+Show Values(speed, position, acceleration, etc.) =========================
+
+    show the values as they update.
+
+Considerations for "By feeling"
+
+    have it give you messages for being close but not quite there.
+
+
+
+

@@ -1,0 +1,199 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhsgm1ph38tqj"]
+
+[ext_resource type="Script" uid="uid://cbi4o17rw5tl2" path="res://electric-simulations/charged-speed-sim/charged_speed_sim.gd" id="1_jc21v"]
+[ext_resource type="PackedScene" uid="uid://clnbivii6i2dj" path="res://electric-simulations/assets/particle/particle.tscn" id="1_puf32"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jc21v"]
+size = Vector2(18, 20)
+
+[node name="charged-speed-sim" type="Node2D" node_paths=PackedStringArray("testCharge", "target_point", "init_pos", "text_box", "speed_label", "time_label", "pos_label")]
+script = ExtResource("1_jc21v")
+testCharge = NodePath("physics/particle2")
+target_point = NodePath("physics/target-node")
+init_pos = NodePath("variables/initPos")
+text_box = NodePath("ui/input")
+speed_label = NodePath("variables/Q2/velo_label")
+time_label = NodePath("variables/Q2/time")
+pos_label = NodePath("variables/Q2/position_label")
+
+[node name="ui" type="Node2D" parent="."]
+position = Vector2(4, -130)
+
+[node name="distance2" type="Label" parent="ui"]
+offset_left = 388.0
+offset_top = 266.0
+offset_right = 1007.0
+offset_bottom = 289.0
+text = "|------------------------------------- Df ----------------------------------|"
+
+[node name="Question" type="Label" parent="ui"]
+offset_left = 97.0
+offset_top = 175.0
+offset_right = 1014.0
+offset_bottom = 224.0
+text = "Given E = 1.0 * 10^4, and the distance Df = 4.1m,  find the charge of Q2 such that Q2 reaches the target point  in 1.0 seconds. The charge Q2 is initially at rest, and the E field is constant, and the charge Q2 is 1kg."
+autowrap_mode = 2
+
+[node name="start_button" type="Button" parent="ui"]
+offset_left = 918.0
+offset_top = 676.0
+offset_right = 1006.0
+offset_bottom = 725.0
+text = "start"
+
+[node name="reset_button" type="Button" parent="ui"]
+offset_left = 1020.0
+offset_top = 671.0
+offset_right = 1115.0
+offset_bottom = 729.0
+text = "reset"
+
+[node name="values" type="Node2D" parent="ui"]
+
+[node name="force1-2" type="Label" parent="ui/values"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="velocity2" type="Label" parent="ui/values"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="input" type="TextEdit" parent="ui"]
+offset_left = 968.0
+offset_top = 612.0
+offset_right = 1047.0
+offset_bottom = 658.0
+text = "1.0"
+placeholder_text = "input here"
+
+[node name="input_label" type="Label" parent="ui"]
+offset_left = 965.0
+offset_top = 585.0
+offset_right = 1119.0
+offset_bottom = 608.0
+text = "Q1 Charge (*10^-4 C)"
+
+[node name="E Field" type="Label" parent="ui"]
+offset_left = 380.0
+offset_top = 529.0
+offset_right = 1021.0
+offset_bottom = 552.0
+text = "-----------------------------------------E Field (constant) ------------------------------------------------------->"
+
+[node name="equations" type="Label" parent="ui"]
+offset_left = 458.0
+offset_top = 613.0
+offset_right = 558.0
+offset_bottom = 737.0
+text = "F = E*q
+A = F/m
+d = 1/2A*t^2"
+
+[node name="sim_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="physics" type="Node2D" parent="."]
+position = Vector2(4, -130)
+
+[node name="particle2" parent="physics" instance=ExtResource("1_puf32")]
+position = Vector2(395, 357)
+
+[node name="Q2" type="Label" parent="physics/particle2"]
+offset_left = -4.0
+offset_top = -43.0
+offset_right = 36.0
+offset_bottom = -20.0
+text = "Q2"
+
+[node name="target-node" type="Node2D" parent="physics"]
+position = Vector2(805, 356)
+
+[node name="targetRect" type="ColorRect" parent="physics/target-node"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 0, 0, 1)
+
+[node name="target-label" type="Label" parent="physics/target-node"]
+offset_left = -13.0
+offset_top = -48.0
+offset_right = 37.0
+offset_bottom = -25.0
+text = "Target"
+
+[node name="neg_plate" type="ColorRect" parent="physics"]
+offset_left = 296.0
+offset_top = 266.0
+offset_right = 336.0
+offset_bottom = 568.0
+color = Color(0, 0, 1, 1)
+
+[node name="pos_plate" type="ColorRect" parent="physics"]
+offset_left = 1032.0
+offset_top = 255.0
+offset_right = 1072.0
+offset_bottom = 557.0
+color = Color(1, 0, 0, 1)
+
+[node name="end_area" type="Area2D" parent="physics"]
+position = Vector2(854, 376)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="physics/end_area"]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_jc21v")
+
+[node name="variables" type="Node2D" parent="."]
+position = Vector2(4, -130)
+
+[node name="other variables" type="Label" parent="variables"]
+offset_left = 54.0
+offset_top = 588.0
+offset_right = 248.0
+offset_bottom = 611.0
+text = "Other Variables"
+
+[node name="Q2" type="Label" parent="variables"]
+offset_left = 46.0
+offset_top = 629.0
+offset_right = 86.0
+offset_bottom = 652.0
+text = "Q2:"
+
+[node name="velo_label" type="Label" parent="variables/Q2"]
+layout_mode = 0
+offset_top = 27.0
+offset_right = 40.0
+offset_bottom = 50.0
+text = "Q2 Velocity: "
+
+[node name="position_label" type="Label" parent="variables/Q2"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 60.0
+offset_right = 41.0
+offset_bottom = 83.0
+text = "Q2 X position: "
+
+[node name="time" type="Label" parent="variables/Q2"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 94.0
+offset_right = 39.0
+offset_bottom = 117.0
+text = "time since start:"
+
+[node name="initPos" type="Node2D" parent="variables"]
+position = Vector2(395, 357)
+
+[node name="finish_label" type="Label" parent="."]
+visible = false
+offset_left = 91.0
+offset_top = 269.0
+offset_right = 1111.0
+offset_bottom = 474.0
+theme_override_font_sizes/font_size = 150
+text = "hm, not quite."
+
+[connection signal="button_down" from="ui/start_button" to="." method="_on_start_button_button_down"]
+[connection signal="button_down" from="ui/reset_button" to="." method="_on_reset_button_button_down"]
+[connection signal="timeout" from="sim_timer" to="." method="_on_sim_timer_timeout"]
+[connection signal="area_entered" from="physics/end_area" to="." method="_on_end_area_area_entered"]
