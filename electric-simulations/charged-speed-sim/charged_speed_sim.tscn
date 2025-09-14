@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhsgm1ph38tqj"]
+[gd_scene load_steps=5 format=3 uid="uid://bhsgm1ph38tqj"]
 
 [ext_resource type="Script" uid="uid://cbi4o17rw5tl2" path="res://electric-simulations/charged-speed-sim/charged_speed_sim.gd" id="1_jc21v"]
 [ext_resource type="PackedScene" uid="uid://clnbivii6i2dj" path="res://electric-simulations/assets/particle/particle.tscn" id="1_puf32"]
+[ext_resource type="PackedScene" uid="uid://dx7a6cjcqkual" path="res://main-menu/Level_Button.tscn" id="2_cuhl6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jc21v"]
 size = Vector2(18, 20)
@@ -88,6 +89,14 @@ offset_bottom = 737.0
 text = "F = E*q
 A = F/m
 d = 1/2A*t^2"
+
+[node name="Button" parent="ui" instance=ExtResource("2_cuhl6")]
+offset_left = 6.0
+offset_top = 137.0
+offset_right = 81.0
+offset_bottom = 172.0
+text = "Back"
+file_path = "uid://igynifjoqtc4"
 
 [node name="sim_timer" type="Timer" parent="."]
 one_shot = true

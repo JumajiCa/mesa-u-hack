@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://dw7ycvst0wnfa"]
+[gd_scene load_steps=8 format=4 uid="uid://dw7ycvst0wnfa"]
 
 [ext_resource type="Texture2D" uid="uid://c2qmnm2g7iqlp" path="res://art/tilesetOpenGameBackground.png" id="1_jjvhh"]
 [ext_resource type="Texture2D" uid="uid://b5ic3kq7c5q1c" path="res://art/predio1.png" id="2_kry3j"]
 [ext_resource type="PackedScene" uid="uid://bivreq18bk2di" path="res://gravity-sim/main_character.tscn" id="3_21xkr"]
 [ext_resource type="PackedScene" uid="uid://bei2max0mxoto" path="res://gravity-sim/Question_1.tscn" id="4_6bp64"]
+[ext_resource type="PackedScene" uid="uid://dx7a6cjcqkual" path="res://main-menu/Level_Button.tscn" id="5_j81a1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h2yge"]
 texture = ExtResource("2_kry3j")
@@ -420,3 +421,19 @@ text = "An egg decides to jump off a tall building. it passes a distance of 43.0
 
 [node name="Area2D" parent="." instance=ExtResource("4_6bp64")]
 position = Vector2(20, -8)
+
+[node name="Button" parent="." instance=ExtResource("5_j81a1")]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -117.0
+offset_top = -48.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Back
+"
+file_path = "uid://igynifjoqtc4"

@@ -11,11 +11,6 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Image Background" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -39,7 +34,13 @@ file_path = "uid://bhsgm1ph38tqj"
 [node name="Gravity" parent="VBoxContainer" instance=ExtResource("1_a6586")]
 layout_mode = 2
 text = "Gravity Simulation"
+file_path = "uid://dw7ycvst0wnfa"
 
 [node name="Button" parent="." instance=ExtResource("1_a6586")]
 layout_mode = 0
+offset_left = 17.0
+offset_top = 31.0
+offset_right = 181.0
+offset_bottom = 110.0
 text = "Back"
+file_path = "uid://q182tx0exdu"
